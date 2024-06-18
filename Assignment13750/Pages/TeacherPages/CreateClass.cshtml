@@ -1,0 +1,158 @@
+﻿@page "/Class.Create"
+@model Assignment13750.Pages.TeacherPages.CreateClassModel
+@{
+}
+
+<head>
+ 
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Create Class</title>
+	
+</head>
+
+<body>
+    <h2 class="text-center">Your Classes</h2>
+    @{
+        Model.refreshClassList();
+        for (int i = 0;i<Model.ClassCount;i++)
+        {
+            <div class="container p-2 border-2">
+                <div class="row">
+                    <div class="col border">
+
+                        @Model.TeachesClasses[i].CourseName
+                    </div>
+                    <div class="col border">
+                        @Model.TeachesClasses[i].CourseNo
+                    </div>
+                    <div class="col border">
+                        @Model.TeachesClasses[i].CourseType
+                    </div>
+                    <div class="col border">
+                        Credits:
+                        @Model.TeachesClasses[i].Credits
+                    </div>
+                    <div class="col border">
+                        Meeting Days:
+                        @Model.TeachesClasses[i].MeetingDays
+                    </div>
+                    <div class="col border">
+                        @Model.TeachesClasses[i].StartTime.ToString("hh:mm tt") To @Model.TeachesClasses[i].EndTime.ToString("hh:mm tt")
+                    </div>
+                    <div class="col border">
+                        <a class="btn btn-info" href="TeacherPages/EditClass/@Model.TeacherClasses[i].ClassID">Edit</a>
+                        
+                    </div>
+                    <div class="col border">
+                        <a class="btn btn-danger" href="TeacherPages/DeleteClass/@Model.TeacherClasses[i].ClassID">Delete</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+    }
+	<h2 class="text-decoration-underline">Create a Class</h2>
+	<div class="row">
+    <div class="col-md-4">
+            <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Classes.CourseName" class="control-label">Course Name</label>
+                <input asp-for="Classes.CourseName" class="form-control" />
+                <span asp-validation-for="Classes.CourseName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Classes.CourseType" class="control-label">Course Department</label>
+                    <select asp-for=" Classes.CourseType" class="form-select" EnableViewState="false">
+                        <option value="CS">CS</option>
+                        <option value="ENG">ENG</option>
+                        <option value="MATH">MATH</option>
+                        <option value="NET">NET</option>
+                        <option value="SCI">SCI</option>
+                        <option value="MUS">MUS</option>
+                        <option value="ART">ART</option>
+                    </select>
+                    <span asp-validation-for="Classes.CourseType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Classes.Credits" class="control-label">Credits</label>
+                <input asp-for="Classes.Credits" class="form-control" type="number"/>
+                <span asp-validation-for="Classes.Credits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Classes.CourseNo" class="control-label">Course Number</label>
+                <input asp-for="Classes.CourseNo" class="form-control" />
+                <span asp-validation-for="Classes.CourseNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Classes.RoomNo" class="control-label">Room</label>
+                <input asp-for="Classes.RoomNo" class="form-control" />
+                <span asp-validation-for="Classes.RoomNo" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                    
+                    <label for="selectedDays">Select Days of the Week:</label>
+                    <div class="form-check">
+                        <label asp-for="Monday" class="form-check-label"> Monday</label>
+                        <input asp-for="Monday" type="checkbox" class="form-check-input">
+                    </div>
+                    <div class="form-check">
+                        <label asp-for="Tuesday" class="form-check-label"> Tuesday</label>
+                        <input asp-for="Tuesday" type="checkbox" class="form-check-input">
+                    </div>
+                    <div class="form-check">
+                        <label asp-for="Wednesday" class="form-check-label"> Wednesday</label>
+                        <input asp-for="Wednesday" type="checkbox" class="form-check-input">
+                    </div>
+                    <div class="form-check">
+                        <label asp-for="Thursday" class="form-check-label"> Thursday</label>
+                        <input asp-for="Thursday" type="checkbox" class="form-check-input">
+                    </div>
+                    <div class="form-check">
+                        <label asp-for="Friday" class="form-check-label"> Friday</label>
+                        <input asp-for="Friday" type="checkbox" class="form-check-input">
+                    </div>
+                    <div class="form-check">
+                        <label asp-for="Saturday" class="form-check-label"> Saturday</label>
+                        <input asp-for="Saturday" type="checkbox" class="form-check-input">
+                    </div>
+                    <div class="form-check">    
+                        <label asp-for="Sunday" class="form-check-label"> Sunday</label>
+                        <input asp-for="Sunday" type="checkbox" class="form-check-input">
+                    </div>
+                    @{
+                        if(Model.NoDays)
+                        {
+                            <p class="text-danger">Please select at least one day</p>
+                        }
+                    }
+            </div>
+            <div class="form-group">
+                <label asp-for="Classes.StartTime" class="control-label">Start Time</label>
+                <input asp-for="Classes.StartTime" class="form-control" type="time"/>
+                <span asp-validation-for="Classes.StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Classes.EndTime" class="control-label">End Time</label>
+                <input asp-for="Classes.EndTime" class="form-control" type="time" />
+                <span asp-validation-for="Classes.EndTime" class="text-danger"></span>
+            </div>
+            @{
+                if (Model.BadTime)
+                {
+                    <p class="text-danger">The start time must be before the end</p>
+                }
+            }
+            <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary"  />
+
+            </div>
+            <div asp-validation-summary="All"></div>
+            
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

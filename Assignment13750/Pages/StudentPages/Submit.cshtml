@@ -1,0 +1,71 @@
+﻿@page "{id}"
+@model Assignment13750.Pages.StudentPages.Submit
+@{
+}
+
+<h1 class="text-md-center text-decoration-underline text-weight-bold">Submission</h1>
+<div class="border-dark col-6">
+	<h2>@Model.Assignment.Name</h2>
+	<h2>@Model.Assignment.Description</h2>
+	<h2>Max: @Model.Assignment.Maxpoints</h2>
+	<h2>Due Date: @Model.Assignment.Duedate</h2>
+    @{
+        if (Model.AssignSubmitted)
+        {
+            if(Model.submission.Grade==0 || Model.submission.Grade == null) // if not graded second statement is if grade is changed to default to null
+            {
+                <h2>Not yet graded</h2>
+            }
+            else //if assign is graded
+            {
+                <h2>Graded: @Model.submission.Grade / @Model.Assignment.Maxpoints</h2>
+                if (Model.submission.Comments !=null) //if there are comments
+                {
+                    <p>Comments: @Model.submission.Comments</p>
+                }
+            }
+        }
+    }
+</div>
+@{
+    if (Model.AssignSubmitted)
+    {
+        <h1 class="text-md-center text-decoration-underline text-weight-bold">Assignment Already Submitted</h1>
+        <h2>Re-submit</h2>
+    }
+}
+<form method="post" enctype="multipart/form-data">
+    @{
+        if (Model.Assignment.SubmissionType) // File Submission
+        {
+            <input type="file" asp-for="Upload" />
+        }
+        else
+        {
+            <div class="form-group">
+                <label for="inputlg">Text:</label>
+                <textarea asp-for="submission.Submitted" class="form-control" rows="5" id="Answer"></textarea>
+            </div>
+        }
+    }
+    <br/>
+        <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary m-3"  />
+        </div>
+     
+	
+</form>
+@{
+    if (Model.AssignSubmitted)
+    {
+        if (Model.submission.Grade == 0 || Model.submission.Grade == null) // if not graded second statement is if grade is changed to default to null
+        {
+
+        }
+        else //if assign is graded
+        {
+            <p>Grade Comparison</p>
+            <img src="@Model.GraphFile" alt="Graph of Grade">
+        }
+    }
+}

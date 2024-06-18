@@ -1,0 +1,101 @@
+﻿@page "/register"
+@model Assignment13750.Pages.StudentPages.IndexModel
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
+</head>
+
+<body>
+    <h1 class="text-center">Register</h1>
+
+    <input type="text" id="searchField" placeholder="Search..." />
+
+    <select id="courseTypeFilter">
+        <option value="">All</option>
+        <option value="CS">CS</option>
+        <option value="ENG">ENG</option>
+        <option value="MATH">MATH</option>
+        <option value="NET">NET</option>
+        <option value="SCI">SCI</option>
+        <option value="MUS">MUS</option>
+        <option value="ART">ART</option>
+    </select>
+
+    <button type="button" onclick="filterTable()">Search</button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Dept</th>
+                <th scope="col">Class</th>
+                <th scope="col">Name</th>
+                <th scope="col">Instructor</th>
+                <th scope="col">Credits</th>
+                <th scope="col">Location</th>
+                <th scope="col">Meeting Times</th>
+                <th scope="col">Add/Drop</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                for (int i = 0; i < Model.SHOWNCLASSES.Count; i++)
+                {
+                    <tr class="course-row">
+                        <th scope="col">@Model.SHOWNCLASSES[i].CourseType</th>
+                        <th scope="col">@Model.SHOWNCLASSES[i].CourseNo</th>
+                        <th scope="col">@Model.SHOWNCLASSES[i].CourseName</th>
+                        <th scope="col">@Model.GetTeacherByClassID(Model.SHOWNCLASSES[i].Id)</th>
+                        <th scope="col">@Model.SHOWNCLASSES[i].Credits</th>
+                        <th scope="col">Room @Model.SHOWNCLASSES[i].RoomNo</th>
+                        <th scope="col">@Model.SHOWNCLASSES[i].MeetingDays</th>
+
+                        @{
+                            if (Model.DoesStudentTakeClass(Model.SHOWNCLASSES[i].Id))
+                            {
+                                <th scope="col">
+                                    <form method="post" asp-page-handler="DropClass" asp-route-classId="@Model.SHOWNCLASSES[i].Id">
+                                        <button type="submit">Drop</button>
+                                    </form>
+                                </th>
+                            }
+                            else
+                            {
+                                <th scope="col">
+                                    <form method="post" asp-page-handler="AddClass" asp-route-classId="@Model.SHOWNCLASSES[i].Id">
+                                        <button type="submit">Add</button>
+                                    </form>
+                                </th>
+                            }
+                        }
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <script>
+        console.log(@Html.Raw(Json.Serialize(Model.SHOWNCLASSES)));
+
+        function filterTable() {
+            var searchField = document.getElementById("searchField").value.toLowerCase();
+            var courseTypeFilter = document.getElementById("courseTypeFilter").value.toLowerCase();
+            var courseRows = document.querySelectorAll(".course-row");
+
+            courseRows.forEach(function (row) {
+                var courseName = row.querySelector("th:nth-child(3)").textContent.toLowerCase();
+                var courseType = row.querySelector("th:nth-child(1)").textContent.toLowerCase();
+
+                var courseNameMatch = courseName.includes(searchField);
+                var courseTypeMatch = courseType.includes(courseTypeFilter) || courseTypeFilter === "" || courseTypeFilter === "all";
+
+                if (courseNameMatch && courseTypeMatch) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>

@@ -1,0 +1,44 @@
+﻿@page "{id}"
+@model Assignment13750.Pages.Login.TeacherSubmissionsModel
+@{
+    ViewData["Title"] = "Assigment Submissions";
+}
+
+<h1>Submissions for @Model.CurrentClass.CourseName</h1>
+
+@if (Model.Subs != null && Model.Subs.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Assignment Name</th>
+                <th>Student Name</th>
+                <th>Submission Date</th>
+                <th>Grade</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 0;
+                foreach (var submission in Model.Subs)
+                {
+                    i++;
+                    <tr>
+                        <td>@Model.GetAssignName(submission.AssignmentID)</td>
+                        <td>@Model.GetUserName(submission.StudentID)</td>
+                    <td>@submission.SubmissionDate</td>
+                    <td>@submission.Grade</td>
+                    <td>
+                        <a class="btn btn-primary" asp-page="/GradeAssignment" asp-route-submissionId="@submission.Id">Grade</a>
+                    </td>
+                </tr>
+            }
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No submissions found for this class.</p>
+}

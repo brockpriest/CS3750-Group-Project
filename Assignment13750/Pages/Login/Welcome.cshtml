@@ -1,0 +1,144 @@
+﻿@page "/Welcome"
+@model Assignment13750.Pages.Login.WelcomeModel
+@{
+}
+
+<style>
+    p {
+        padding-left: 10px;
+        font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+    }
+
+    .card-area {
+        width: 90%;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        width: 48%;
+        border: 1px solid black;
+        font-size: 1.25rem;
+        /*overflow: hidden;*/
+        float: left;
+        margin: 2px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-header {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    a, a:hover{
+        color:black;
+        text-decoration: none;
+    }
+    .to-do-list{
+        float:right;
+        width:30%;
+    }
+
+    .to-do-wrapper {
+        float: right;
+        width: 30%;
+        margin-top: 20px;
+        
+    }
+    .to-do-card{
+        border: 1px solid black;
+        margin-bottom: 10px;
+    }
+    .cardSection{
+        float: left;
+        width: 70%; 
+    }
+
+    .adjust-height-card {
+        display: flex;
+        flex-direction: column;
+        /* Remove the fixed height to allow dynamic growth */
+    }
+</style>
+<script>
+    window.addEventListener('load', function () {
+        const cards = document.querySelectorAll('.adjust-height-card');
+        let maxHeight = 0;
+        cards.forEach(card => {
+            const cardHeight = card.offsetHeight;
+            if (cardHeight > maxHeight) {
+                maxHeight = cardHeight;
+            }
+        });
+        cards.forEach(card => {
+            card.style.height = `${maxHeight}px`;
+        });
+    });
+</script>
+<script>
+    function dismissNotification(button) {
+        const notification = button.closest('.dropdown-item');
+        if (notification) {
+            notification.remove();
+        }
+    }
+</script>
+
+<h1>Courses </h1>
+@if (Model.userlogin!=null)
+{
+   <p>Welcome, @Model.userlogin.FirstName</p>
+}
+@if (Model.userlogin.IsTeacher) //for teachers///////////////////////
+{
+    @for (int i = 0; i < Model.ClassCount; i++)
+    {
+        <div class="card-area">
+            <a asp-page="Course" asp-route-Id="@Model.TeachesClasses[i].Id">
+                <div class="card adjust-height-card">
+                    <p class="card-header">Course Number: @Model.TeachesClasses[i].CourseType @Model.TeachesClasses[i].CourseNo</p>
+                    <p>Course Name:  @Model.TeachesClasses[i].CourseName</p>
+                    <p>Meeting Days: @Model.TeachesClasses[i].MeetingDays</p>
+                    <p>Start Time: @Model.TeachesClasses[i].StartTime.ToString("hh:mm tt")</p>
+                    <p>End Time: @Model.TeachesClasses[i].EndTime.ToString("hh:mm tt")</p>
+                    <p>Location: @Model.TeachesClasses[i].RoomNo</p>
+                </div>
+            </a>
+        </div>
+    }
+
+}
+else //students
+{
+    <div class=cardSection>
+        @for (int i = 0; i < Model.ClassCount; i++)
+        {
+            <div class="card-area">
+                <a asp-page="Course" asp-route-Id="@Model.studentClasses[i].Id">
+                    <div class="card adjust-height-card">
+                        <p class="card-header">Course Number: @Model.studentClasses[i].CourseType @Model.studentClasses[i].CourseNo</p>
+                        <p>Course Name:  @Model.studentClasses[i].CourseName</p>
+                        <p>Meeting Days: @Model.studentClasses[i].MeetingDays</p>
+                        <p>Start Time: @Model.studentClasses[i].StartTime.ToString("hh:mm tt")</p>
+                        <p>End Time: @Model.studentClasses[i].EndTime.ToString("hh:mm tt")</p>
+                        <p>Location: @Model.studentClasses[i].RoomNo</p>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+
+    <div class="to-do-wrapper">
+        <h2>To-Do List</h2>
+        @foreach (var assignment in Model.ToDoAssignments)
+        {
+            <a href="/StudentPages/submit/@assignment.Id" target="_self">
+                <div class="to-do-card">
+                    <p>Course Number: @assignment.Classes.CourseType @assignment.Classes.CourseNo</p>
+                    <p>Assignment: @assignment.Name</p>
+                    <p>Due Date: @assignment.Duedate.ToString("MMMM dd HH:mm:ss")</p>
+                </div>
+            </a>
+        }
+    </div>
+}

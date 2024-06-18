@@ -1,0 +1,140 @@
+﻿@page
+@model Assignment13750.Pages.Login.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Profile</h1>
+
+<img src="~/images/profilepics/@Model.Credentials.ProfilePic" alt="Profile Picture" style="max-width: 200px;" />
+
+
+<div>
+    <h4>Account Info</h4>
+    <hr />
+
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Credentials.FirstName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Credentials.FirstName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Credentials.LastName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Credentials.LastName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Credentials.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Credentials.Email)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Credentials.BirthDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Credentials.BirthDate)
+            </dd>
+            <dt class="col-sm-2">
+                User Type:
+                <br />
+            </dt>
+
+            @if (Model.Credentials.IsTeacher == true)
+            {
+                <dd class="col-sm-10">
+                    Teacher
+                </dd>
+            }
+            else
+            {
+                <dd class="col-sm-10">
+                    Student
+                </dd>
+            }
+            <dt class="col-sm-2">
+                Address One:
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Credentials.Address1)
+            </dd>
+            <dt class="col-sm-2">
+                Address Two:
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Credentials.Address2)
+            </dd>
+            <dt class="col-sm-2">
+                City:
+
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Credentials.City)
+            </dd>
+            <dt class="col-sm-2">
+                State:
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Credentials.State)
+            </dd>
+            <dt class="col-sm-2">
+                Zip:
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Credentials.Zip)
+            </dd>
+            <dt class="col-sm-2">
+                Link One:
+            </dt>
+            <dd class="col-sm-10">
+                <a href="@Model.Credentials.Link1" target="_blank">@Html.DisplayFor(model => model.Credentials.Link1)</a>
+            </dd>
+            <dt class="col-sm-2">
+                Link Two:
+            </dt>
+            <dd class="col-sm-10">
+                <a href="@Model.Credentials.Link2" target="_blank">@Html.DisplayFor(model => model.Credentials.Link2)</a>
+            </dd>
+            <dt class="col-sm-2">
+                Link Three:
+            </dt>
+            <dd class="col-sm-10">
+                <a href="@Model.Credentials.Link3" target="_blank">@Html.DisplayFor(model => model.Credentials.Link3)</a>
+            </dd>
+
+
+        </dl>
+    </div>
+
+</div>
+
+<form method="post">
+    <button type="submit" asp-page-handler="Logout" class="btn btn-dark">Log Out</button>
+</form>
+<br />
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Credentials?.ID">Edit</a> |
+</div>
+
+<style>
+    .profile-pic {
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    .no-profile-pic {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: bold;
+    }
+</style>

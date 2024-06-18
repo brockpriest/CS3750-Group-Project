@@ -1,0 +1,141 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Assignment13750
+build_property.RootNamespace = Assignment13750
+build_property.ProjectDir = C:\Users\prest\Documents\School\school2023\Fall23\CS 3750 Software Engineering 2\11.2\Group_Project_3750\Assignment13750\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\prest\Documents\School\school2023\Fall23\CS 3750 Software Engineering 2\11.2\Group_Project_3750\Assignment13750
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/chart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcY2hhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Courses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/GradeAssignment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3JhZGVBc3NpZ25tZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Login/Calender.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cQ2FsZW5kZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Login/Course.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cQ291cnNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Login/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Login/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Login/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Login/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Login/File.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cRmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Login/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cTG9nb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Login/TeacherSubmissions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cVGVhY2hlclN1Ym1pc3Npb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Login/Welcome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cV2VsY29tZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Payment/Cancel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF5bWVudFxDYW5jZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Payment/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF5bWVudFxTdWNjZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/StudentPages/Account.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGVudFBhZ2VzXEFjY291bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/StudentPages/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGVudFBhZ2VzXFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/StudentPages/Submit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGVudFBhZ2VzXFN1Ym1pdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/TeacherPages/CreateClass.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhY2hlclBhZ2VzXENyZWF0ZUNsYXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/TeacherPages/DeleteAssignment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhY2hlclBhZ2VzXERlbGV0ZUFzc2lnbm1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/TeacherPages/DeleteClass.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhY2hlclBhZ2VzXERlbGV0ZUNsYXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/TeacherPages/EditAssignment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhY2hlclBhZ2VzXEVkaXRBc3NpZ25tZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/TeacherPages/EditClass.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhY2hlclBhZ2VzXEVkaXRDbGFzcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/prest/Documents/School/school2023/Fall23/CS 3750 Software Engineering 2/11.2/Group_Project_3750/Assignment13750/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-kd413fz6yq

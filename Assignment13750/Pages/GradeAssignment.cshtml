@@ -1,0 +1,34 @@
+﻿@page "/GradeAssignment/{submissionId}"
+@model Assignment13750.Pages.GradeAssignmentModel
+@{
+    ViewData["Title"] = "Grade Submission";
+}
+
+<h1>Grade Submission: @Model.Assignment.Name</h1>
+@{
+    if(Model.Assignment.SubmissionType) // file submission
+    {
+        <h3>File Submission: </h3>
+        <a href="/Images/Submissions/@Model.Submission.Submitted" download>Download File</a>
+    }
+    else
+    {
+        <h3>Submission: </h3>
+        <p>@Model.Submission.Submitted</p>
+    }
+}
+
+<form method="post">
+    <div class="form-group">
+        <label for="grade">Grade:</label>
+        <input type="text" class="form-control" asp-for="Grade" required>
+    </div>
+
+    <div class="form-group">
+        <label for="comments">Comments:</label>
+        <textarea class="form-control" asp-for="Comments"></textarea>
+    </div>
+   
+
+    <button type="submit" class="btn btn-primary">Submit Grade</button>
+</form>

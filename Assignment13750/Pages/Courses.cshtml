@@ -1,0 +1,58 @@
+﻿@page "/Courses"
+@model CoursesModel
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Courses</title>
+</head>
+
+<body>
+    <h2 class="text-center">Your Classes</h2>
+    @{
+        Model.refreshClassList();
+    }
+
+    @if (Model.ClassCount > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Course No</th>
+                    <th>Course Type</th>
+                    <th>Credits</th>
+                    <th>Meeting Days</th>
+                    <th>Time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.ClassCount; i++)
+                {
+                    <tr>
+                        <td>@Model.TeachesClasses[i].CourseName</td>
+                        <td>@Model.TeachesClasses[i].CourseNo</td>
+                        <td>@Model.TeachesClasses[i].CourseType</td>
+                        <td>Credits: @Model.TeachesClasses[i].Credits</td>
+                        <td>Meeting Days: @Model.TeachesClasses[i].MeetingDays</td>
+                        <td>@Model.TeachesClasses[i].StartTime.ToString("hh:mm tt") To @Model.TeachesClasses[i].EndTime.ToString("hh:mm tt")</td>
+                        <td>
+                            <a class="btn btn-info" href="TeacherPages/EditClass/@Model.TeacherClasses[i].ClassID">Edit</a>
+                            <a class="btn btn-danger" href="TeacherPages/DeleteClass/@Model.TeacherClasses[i].ClassID">Delete</a>
+                            <a class="btn btn-primary" href="Login/TeacherSubmissions/@Model.TeacherClasses[i].ClassID">Submissions</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No classes found.</p>
+    }
+</body>
+</html>

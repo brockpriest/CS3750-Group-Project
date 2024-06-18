@@ -1,0 +1,49 @@
+﻿@page "{id}"
+@model Assignment13750.Pages.TeacherPages.EditAssignmentModel
+@{
+}
+<h1>Edit Assignment</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Assignment.Name" class="control-label">Assignment Name</label>
+                <input asp-for="Assignment.Name" class="form-control" />
+                <span asp-validation-for="Assignment.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assignment.Description" class="control-label">Description</label>
+                <input asp-for="Assignment.Description" class="form-control" type="text" />
+                <span asp-validation-for="Assignment.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assignment.Maxpoints" class="control-label">Max Points</label>
+                <input asp-for="Assignment.Maxpoints" class="form-control" />
+                <span asp-validation-for="Assignment.Maxpoints" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assignment.Duedate" class="control-label">Due Date</label>
+                <input asp-for="Assignment.Duedate" class="form-control" />
+                <span asp-validation-for="Assignment.Duedate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Submission Type</label>
+                <br />
+                <div class="form-check">
+                    <label asp-for="Text" class="form-check-label"> Text</label>
+                    <input asp-for="Text" id="sub" type="radio" name = "type" value="true" class="form-check-input">
+                </div>
+                <div class="form-check">
+                    <label asp-for="File" class="form-check-label">File</label>
+                    <input asp-for="File" id="sub" value="true" name = "type" type="radio" class="form-check-input">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+
+            </div>
+            <div asp-validation-summary="All"></div>
+
+        </form>

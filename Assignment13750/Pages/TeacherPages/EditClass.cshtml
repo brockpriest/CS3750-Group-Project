@@ -1,0 +1,101 @@
+﻿@page "{id}"
+@model Assignment13750.Pages.TeacherPages.EditClassModel
+@{
+}
+<h1>Edit Class</h1>
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Class.CourseName" class="control-label">Course Name</label>
+        <input asp-for="Class.CourseName" class="form-control" />
+        <span asp-validation-for="Class.CourseName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Class.CourseType" class="control-label">Course Department</label>
+        <select asp-for=" Class.CourseType" class="form-select" EnableViewState="false">
+            <option value="CS">CS</option>
+            <option value="ENG">ENG</option>
+            <option value="MATH">MATH</option>
+            <option value="NET">NET</option>
+            <option value="SCI">SCI</option>
+            <option value="MUS">MUS</option>
+            <option value="ART">ART</option>
+        </select>
+        <span asp-validation-for="Class.CourseType" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Class.Credits" class="control-label">Credits</label>
+        <input asp-for="Class.Credits" class="form-control" type="number" />
+        <span asp-validation-for="Class.Credits" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Class.CourseNo" class="control-label">Course Number</label>
+        <input asp-for="Class.CourseNo" class="form-control" />
+        <span asp-validation-for="Class.CourseNo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Class.RoomNo" class="control-label">Room</label>
+        <input asp-for="Class.RoomNo" class="form-control" />
+        <span asp-validation-for="Class.RoomNo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+
+        <label for="selectedDays">Select Days of the Week:</label>
+        <div class="form-check">
+            <label asp-for="Monday" class="form-check-label"> Monday</label>
+            <input asp-for="Monday" type="checkbox" class="form-check-input">
+        </div>
+        <div class="form-check">
+            <label asp-for="Tuesday" class="form-check-label"> Tuesday</label>
+            <input asp-for="Tuesday" type="checkbox" class="form-check-input">
+        </div>
+        <div class="form-check">
+            <label asp-for="Wednesday" class="form-check-label"> Wednesday</label>
+            <input asp-for="Wednesday" type="checkbox" class="form-check-input">
+        </div>
+        <div class="form-check">
+            <label asp-for="Thursday" class="form-check-label"> Thursday</label>
+            <input asp-for="Thursday" type="checkbox" class="form-check-input">
+        </div>
+        <div class="form-check">
+            <label asp-for="Friday" class="form-check-label"> Friday</label>
+            <input asp-for="Friday" type="checkbox" class="form-check-input">
+        </div>
+        <div class="form-check">
+            <label asp-for="Saturday" class="form-check-label"> Saturday</label>
+            <input asp-for="Saturday" type="checkbox" class="form-check-input">
+        </div>
+        <div class="form-check">
+            <label asp-for="Sunday" class="form-check-label"> Sunday</label>
+            <input asp-for="Sunday" type="checkbox" class="form-check-input">
+        </div>
+        @{
+            if (Model.NoDays)
+            {
+                <p class="text-danger">Please select at least one day</p>
+            }
+        }
+    </div>
+    <div class="form-group">
+        <label asp-for="Class.StartTime" class="control-label">Start Time</label>
+        <input asp-for="Class.StartTime" class="form-control" type="time" />
+        <span asp-validation-for="Class.StartTime" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Class.EndTime" class="control-label">End Time</label>
+        <input asp-for="Class.EndTime" class="form-control" type="time" />
+        <span asp-validation-for="Class.EndTime" class="text-danger"></span>
+    </div>
+    @{
+        if (Model.BadTime)
+        {
+            <p class="text-danger">The start time must be before the end</p>
+        }
+    }
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+
+    </div>
+    <div asp-validation-summary="All"></div>
+
+</form>

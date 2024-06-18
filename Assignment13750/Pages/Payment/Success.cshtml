@@ -1,0 +1,15 @@
+﻿@page "{id?}"
+@model Assignment13750.Pages.Payment.SuccessModel
+@{
+}
+@{
+	if (Model.FailedPayment == false)
+	{
+		<h1 class="text-center p-5">Success</h1>
+		<h3 class="text-center p-5">New balance: @Model.credentials.TuitionBalance</h3>
+	}
+	else
+	{
+		<h1>Payment Unsuccessful</h1>
+	}
+}

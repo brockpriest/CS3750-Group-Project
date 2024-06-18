@@ -1,0 +1,121 @@
+﻿@page "profile"
+@model Assignment13750.Pages.Login.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Profile</h1>
+
+<h4>Edit</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+
+            <p><input type="file" accept="image/*" name="ProfilePicFile" id="file" onchange="loadFile(event)" style="display: none;"></p>
+            <p><label class="pic" for="file" style="cursor: pointer;">Change Profile Image</label></p>
+            <p id="Uploaded-text" style="display:none">New photo</p>
+            <p><img id="output" width="200" /></p>
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Credentials.ID" />
+            <div class="form-group">
+                <label asp-for="Credentials.FirstName" class="control-label">First Name</label>
+                <input asp-for="Credentials.FirstName" class="form-control" />
+                <span asp-validation-for="Credentials.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Credentials.LastName" class="control-label">Last Name</label>
+                <input asp-for="Credentials.LastName" class="form-control" />
+                <span asp-validation-for="Credentials.LastName" class="text-danger"></span>
+            </div>
+            
+                <input asp-for="Credentials.Password" class="hidden" type="hidden" />
+                
+            <div class="form-group">
+            </div>
+
+            <input asp-for="Credentials.IsTeacher" class="hidden" type="hidden" />
+
+            <div class="form-group">
+                <label asp-for="Credentials.Email" class="control-label">Email</label>
+                <input asp-for="Credentials.Email" class="form-control" />
+                <span asp-validation-for="Credentials.Email" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Credentials.BirthDate" class="control-label">Birth Day</label>
+                <input asp-for="Credentials.BirthDate" class="form-control" />
+                <span asp-validation-for="Credentials.BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Credentials.Address1" class="control-label">Address One</label>
+                <input asp-for="Credentials.Address1" class="form-control" />
+            
+            </div>
+            <div class="form-group">
+                <label asp-for="Credentials.Address2" class="control-label">Address Two</label>
+                <input asp-for="Credentials.Address2" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Credentials.City" class="control-label">City</label>
+                <input asp-for="Credentials.City" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Credentials.State" class="control-label">State</label>
+                <input asp-for="Credentials.State" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Credentials.Zip" class="control-label">Zip</label>
+                <input asp-for="Credentials.Zip" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Credentials.Link1" class="control-label">Link One</label>
+                <input asp-for="Credentials.Link1" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Credentials.Link2" class="control-label">Link Two</label>
+                <input asp-for="Credentials.Link2" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Credentials.Link3" class="control-label">Link Three</label>
+                <input asp-for="Credentials.Link3" class="form-control" />
+            </div>
+            
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Login/welcome">Dashboard</a>
+</div>
+
+</script>  
+
+<script>
+    function loadFile(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        document.getElementById('Uploaded-text').style.display = 'block';
+    }
+</script>
+
+<style id="picStyle">
+    label.pic {
+        border: 1px solid black;
+        padding: 10px;
+        transition: 0.25s;
+    }
+
+        label.pic:hover {
+            color: white;
+            background-color: grey;
+        }
+
+</style>

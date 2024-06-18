@@ -1,0 +1,109 @@
+﻿@page "/calendar"
+@model Assignment13750.Pages.Login.CalenderModel
+@{
+}
+<html lang='en'>
+<head>
+    <title>Calendar</title>
+    <meta charset='utf-8' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
+    
+    @{
+        var events = ViewData["Events"];
+    }
+
+    <script>
+        
+        var eventData = @Html.Raw(Json.Serialize(Model.Events));
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            @*var event2 = @Html.Raw(Json.Encode(Model.Events));*@
+
+            var events = eventData.map(function (x) {
+                             
+
+                var startTimeEnhance = x.startTime.toString("HH:mm tt");
+                console.log(startTimeEnhance);
+
+                var startDate = x.startTime.toString("yyyy-mm-dd");
+                console.log(startDate);
+
+                var MeetingDaysString = x.MeetingDays;
+                console.log(MeetingDaysString);
+
+                //var daysOfWeek = (typeof MeetingDaysString === 'string' && MeetingDaysString.trim() !== '') ? MeetingDaysString.split(',').map(Number) : [];
+
+                
+
+                return {
+                    id: x.Id,
+                    title: x.courseNumber,
+                    //startTime: startTimeEnhance,
+                    start: startDate,
+                    //end: x.endTime,
+                    rrule: {
+                        freq: 'weekly',
+                        //interval: 10,
+                        //daysOfWeek: ['4'],
+                        //byweekday: MeetingDaysString,
+                        dtstart: '2023-10-20',
+                        until: '2023-12-11'
+                    }
+                    //daysOfWeek: x.MeetingDays.split(',').map(Number)
+                };
+                console.log(x.meetingDays);
+            });
+            console.log(events);
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: events
+            });
+
+            //console.log(data);
+            calendar.render();
+
+
+            // var calendar = new FullCalendar.Calendar(calendarEl, {
+            //         plugins: ['dayGrid'],
+            //         events: [  ]
+                 
+            //      Pass the events array to FullCalendar
+            //     defaultView: 'dayGridMonth', // Adjust the default view as needed
+            //     header: {
+            //         left: 'prev,next today',
+            //         center: 'title',
+            //         right: 'dayGridMonth,dayGridWeek,dayGridDay'
+            //     }
+            //  });
+
+
+            @*// var data = @Html.Raw(Json.Serialize(Model.Events));*@
+            // console.log(data);
+            // calendar.render();
+            
+        });
+
+            
+            
+    </script>
+    @* @foreach (var e in Model.Events)
+    {
+        <div>
+            <p>Event ID: @e.Id</p>
+            <p>Course Number: @e.courseNumber</p>
+            <p>Start Time: @e.startTime</p>
+            <p>End Time: @e.startTime</p>
+            <p>Meeting Days: @e.MeetingDays</p>
+        </div>
+    } *@
+</head>
+<body>
+
+    <div id='calendar'></div>
+    
+    
+</body>
+</html>

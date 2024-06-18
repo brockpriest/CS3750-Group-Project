@@ -1,0 +1,30 @@
+﻿@page
+@model Assignment13750.Pages.Login.FileModel
+@{
+}
+
+<style>
+	label{
+		border: 1px solid black;
+		padding: 10px;
+		transition: 0.25s;
+	}
+	label:hover{
+		color: white;
+		background-color: grey;
+	}
+
+</style>
+
+<p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+<p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+<p id="Uploaded-text" style="display:none">Uploaded File</p>
+<p><img id="output" width="200" /></p>
+
+<script>
+var loadFile = function(event) {
+	document.getElementById('Uploaded-text').style.display = "block";
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>

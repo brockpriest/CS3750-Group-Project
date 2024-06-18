@@ -1,0 +1,183 @@
+﻿﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Assignment 1</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Assignment13750.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-page="/index">Quantum Quotients</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        @{
+                            if (!User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                                </li>
+                            }
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Login/Welcome">Home</a>
+                                </li>
+                            }
+                        }
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                        @{
+                            if (!(User.Identity.IsAuthenticated))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Login/Create">Sign Up</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Login/Index">Log In</a>
+                                </li>
+                            }
+                        }
+                        @{
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                //TEACHERS
+                                if (User.Claims.ToList()[1].ToString().ToLower().Contains("true")) // for teacher
+                                {
+                                    <li class="nav-item"> 
+                                        <a class="nav-link text-dark" asp-area="" asp-page="/TeacherPages/CreateClass">Create Class</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-page="/Courses">Courses</a>
+                                    </li>
+                                }
+                                //STUDENTS
+                                else if (User.Claims.ToList()[1].ToString().ToLower().Contains("false")) // for students
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-page="/StudentPages/Register">Register</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-page="/StudentPages/Account">Payment</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-page="/chart">Chart</a>
+                                    </li>
+                                }
+                            }
+                        }
+
+                        @{
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Login/Calender">Calendar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Login/Details">Profile</a>
+                                </li>
+                                // <li class="nav-item">
+                                //     <a class="nav-link text-dark" asp-area="" asp-page="/Login/File">Upload a File</a>
+                                // </li>
+                            }
+                        }
+
+                    </ul>
+                </div>
+                <!-- Bell Notification -->
+                @{
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="notificationsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-bell"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationsDropdown">
+                                    <!-- Notification items go here -->
+                                    <a class="dropdown-item" href="#">
+                                        Notification 1
+                                        <button type="button" class="close" aria-label="Close" onclick="dismissNotification(this)">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        Notification 2
+                                        <button type="button" class="close" aria-label="Close" onclick="dismissNotification(this)">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        Notification 3
+                                        <button type="button" class="close" aria-label="Close" onclick="dismissNotification(this)">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        Notification 4
+                                        <button type="button" class="close" aria-label="Close" onclick="dismissNotification(this)">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        Notification 5
+                                        <button type="button" class="close" aria-label="Close" onclick="dismissNotification(this)">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </a>
+                                </div>
+                            </li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <form method="post" asp-page="/Login/Logout" asp-route-returnUrl="@Url.Content("~/")">
+                                        <button type="submit" class="btn btn-link nav-link text-dark">Log Out</button>
+                                    </form>
+                                </li>
+                            }
+                        </ul>
+                    }
+                }
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Quantum Quotients - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        function dismissNotification(button) {
+            const notification = button.closest('.dropdown-item');
+            if (notification) {
+                notification.remove();
+            }
+        }
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

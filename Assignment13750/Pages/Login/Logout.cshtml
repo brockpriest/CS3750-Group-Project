@@ -1,0 +1,23 @@
+﻿@page
+@using Microsoft.AspNetCore.Authentication.Cookies;
+@using Microsoft.AspNetCore.Authentication;
+@using Microsoft.AspNetCore.Authorization;
+@using System.Security.Claims;
+@using Microsoft.AspNetCore.Authentication.Cookies;
+
+@model LogoutModel
+
+@{
+    ViewData["Title"] = "Logout";
+}
+
+<h1>Logging out...</h1>
+
+@functions {
+    public async Task<IActionResult> OnGetAsync()
+    {
+        await HttpContext.SignOutAsync(
+        CookieAuthenticationDefaults.AuthenticationScheme);
+        return Redirect("/index");
+    }
+}

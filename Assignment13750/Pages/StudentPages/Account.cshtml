@@ -1,0 +1,36 @@
+﻿@page "/account"
+@model Assignment13750.Pages.StudentPages.AccountModel
+@{
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
+
+</head>
+
+<body>
+    <h1 class="text-center">Account</h1>
+    
+    
+
+    <div class="container col-5">
+       
+
+        <div class="form-group">
+            <label for="totalPayment">Amount Owed:</label>
+            <span id="totalPaymentLabel">@Model.TuitionUser.TuitionBalance</span>
+        </div>
+
+        <form method="post">
+            <div class="form-group">
+                <label Asp-for = "PaymentAmount">Amount Student Wants to Pay:</label>
+                <input type="text" asp-for="PaymentAmount" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary m-5">Pay</button>
+        </form>
+    </div>
+    
+</body>
+
+</html>
